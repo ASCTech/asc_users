@@ -12,6 +12,7 @@ function asc_users_install() {
     'bromwell.1',
     'strouse.24',
     'fatzinger.6',
+    'eckhardt.12',
   );
 
   foreach ($users as $username) {
