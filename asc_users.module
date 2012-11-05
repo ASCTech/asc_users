@@ -1,0 +1,35 @@
+<?php
+
+function asc_users_install() {
+
+  $users = array(
+    'butsko.7',
+    'abraham.46',
+    'croley.1',
+    'dale.36',
+    'bonnell.11',
+    'samoviski.1',
+    'bromwell.1',
+    'strouse.24',
+    'fatzinger.6',
+  );
+
+  foreach ($users as $username) {
+    $edit = array(
+      'name' => $username,
+      'pass' => substr(md5(rand()), 0, 9);,
+      'mail' => $username . '@osu.edu',
+      'status' => 1,
+      'language' => 'en',
+      'init' => $username . '@osu.edu',
+      'roles' => array('Site Administrator'),
+    );
+
+  $user = user_save(NULL, $edit);
+
+  // Make it so user can log in with shibboleth.
+  shib_provision_provision($user->uid, $user->name, $user->mail);
+
+  }
+
+}
