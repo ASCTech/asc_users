@@ -18,12 +18,12 @@ function asc_users_install() {
   foreach ($users as $username) {
     $edit = array(
       'name' => $username,
-      'pass' => substr(md5(rand()), 0, 9),
+      'pass' => drupal_substr(md5(rand()), 0, 9),
       'mail' => $username . '@osu.edu',
       'status' => 1,
       'language' => 'en',
       'init' => $username . '@osu.edu',
-      'roles' => array('Site Administrator'),
+      'roles' => array(1 => 'Site Administrator'),
     );
 
   $user = user_save(NULL, $edit);
