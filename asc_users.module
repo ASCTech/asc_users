@@ -23,7 +23,7 @@ function asc_users_install() {
       'status' => 1,
       'language' => 'en',
       'init' => $username . '@osu.edu',
-      'roles' => array(1 => 'Site Administrator'),
+      'roles' => array(2 => 'Site Administrator'),
     );
 
   $user = user_save(NULL, $edit);
